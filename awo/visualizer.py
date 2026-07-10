@@ -1,11 +1,9 @@
-import json
-import matplotlib.pyplot as plt
+from .logio import load_logs
 
 def visualize():
     """Basic visualization."""
     try:
-        with open("awo_log.jsonl", "r") as f:
-            logs = [json.loads(line) for line in f]
+        logs = load_logs()
         print("Visualization placeholder - implement as needed")
     except FileNotFoundError:
         print("No log file found yet.")

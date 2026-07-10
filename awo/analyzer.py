@@ -1,11 +1,9 @@
-import json
-from collections import defaultdict
+from .logio import load_logs
 
 def analyze_logs():
     """Basic log analysis."""
     try:
-        with open("awo_log.jsonl", "r") as f:
-            logs = [json.loads(line) for line in f]
+        logs = load_logs()
         print(f"Total entries: {len(logs)}")
     except FileNotFoundError:
         print("No log file found yet.")
