@@ -1,5 +1,6 @@
 import click
 import time
+import datetime
 from .collector import collect_all_metrics
 from .logger import log_metrics
 
