@@ -1,0 +1,4 @@
+psutil
+click
+matplotlib
+pynvml  # optional for GPU
