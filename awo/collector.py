@@ -1,11 +1,10 @@
 import psutil
-import time
 from typing import Dict, Any
 
 def get_system_metrics() -> Dict[str, Any]:
     """Collect general system metrics using psutil."""
     return {
-        "cpu_percent": psutil.cpu_percent(interval=1),
+        "cpu_percent": psutil.cpu_percent(interval=None),
         "memory_percent": psutil.virtual_memory().percent,
         "disk_usage_percent": psutil.disk_usage('/').percent,
     }
