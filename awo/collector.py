@@ -5,7 +5,6 @@ from typing import Dict, Any
 def get_system_metrics() -> Dict[str, Any]:
     """Collect general system metrics using psutil."""
     return {
-        "timestamp": time.time(),
         "cpu_percent": psutil.cpu_percent(interval=1),
         "memory_percent": psutil.virtual_memory().percent,
         "disk_usage_percent": psutil.disk_usage('/').percent,
@@ -33,3 +32,4 @@ def collect_all_metrics() -> Dict[str, Any]:
         **get_system_metrics(),
         **get_gpu_metrics()
     }
+
