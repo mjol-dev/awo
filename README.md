@@ -39,3 +39,5 @@ python -m awo.cli visualize --tag my-experiment --output my_run.png
 ## Notes 
 - Visualization uses elapsed time (seconds since the first sample), not calendar dates, so short runs plot clearly.
 - Default log file: `awo_log.jsonl`. Default plot: `awo_plot.png`. 
+- Each JSONL row is an **envelope** plus **metrics**: `timestamp` (ISO, set by the logger) and `tag`, then fields like `cpu_percent`, `memory_percent`, `disk_usage_percent`, and optional GPU keys. The collector does not set `timestamp`.
+- `--interval` is the sleep between samples; CPU is sampled without an extra blocking 1s wait so the flag matches the poll cadence.
