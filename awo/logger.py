@@ -1,7 +1,6 @@
 import json
 import datetime
-
-LOG_FILE = "awo_log.jsonl"
+from .config import LOG_FILE
 
 def log_metrics(metrics, tag="default"):
     """Log metrics to file."""
