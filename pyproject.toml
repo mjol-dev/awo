@@ -14,11 +14,12 @@ dependencies = [
     "matplotlib",
 ]
 
-[project.optional-dependencies]
-gpu = ["pynvml"]
-
 [project.scripts]
 awo = "awo.cli:cli"
 
 [tool.hatch.build.targets.wheel]
 packages = ["awo"]
+
+[project.optional-dependencies]
+gpu = ["pynvml"]
+dev = ["pytest"]
