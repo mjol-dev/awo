@@ -4,6 +4,7 @@ import datetime
 from .collector import collect_all_metrics
 from .logger import log_metrics
 from .analyzer import analyze_logs
+from .visualizer import visualize
 
 @click.group()
 def cli():
@@ -30,6 +31,13 @@ def start(tag, interval):
 def analyze(tag):
     """Analyze collected metrics."""
     analyze_logs(tag)
+
+@cli.command("visualize")
+@click.option("--tag", default=None, help="Only plot entries with this tag")
+@click.option("--output", default="awo_plot.png", help="Path for the PNG")
+def visualize_cmd(tag, output):
+    """Plot CPU and memory vs elapsed time."""
+    visualize(tag=tag, output=output)
 
 if __name__ == "__main__":
     cli()
