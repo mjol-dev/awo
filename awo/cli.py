@@ -5,6 +5,7 @@ from .collector import collect_all_metrics
 from .logger import log_metrics
 from .analyzer import analyze_logs
 from .visualizer import visualize
+from .config import DEFAULT_INTERVAL
 
 @click.group()
 def cli():
@@ -12,7 +13,7 @@ def cli():
 
 @cli.command()
 @click.option("--tag", default="default", help="Tag for the logging session")
-@click.option("--interval", default=5, help="Polling interval in seconds")
+@click.option("--interval", default=DEFAULT_INTERVAL, help="Polling interval in seconds")
 def start(tag, interval):
     """Start collecting metrics."""
     click.echo(f"Starting observability with tag: {tag}")
