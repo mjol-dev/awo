@@ -9,24 +9,21 @@ A lightweight CLI for collecting system (and optional NVIDIA GPU) metrics during
 Metrics are appended to `awo_log.jsonl` in the current working directory.
 
 ## Setup
-
 ```bash
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Usage
 ```bash
 # Collect (Ctrl+C to stop)
-python -m awo.cli start --tag my-experiment
-python -m awo.cli start --tag my-experiment --interval 5
-
+awo start --tag my-experiment
+awo start --tag my-experiment --interval 5
 # Summarize
-python -m awo.cli analyze
-python -m awo.cli analyze --tag my-experiment
-
+awo analyze
+awo analyze --tag my-experiment
 # Plot CPU and memory vs seconds since start
-python -m awo.cli visualize
-python -m awo.cli visualize --tag my-experiment --output my_run.png
+awo visualize
+awo visualize --tag my-experiment --output my_run.png
 ```
 
 ## Commands 
