@@ -3,6 +3,7 @@ import time
 import datetime
 from .collector import collect_all_metrics
 from .logger import log_metrics
+from .analyzer import analyze_logs
 
 @click.group()
 def cli():
@@ -22,6 +23,13 @@ def start(tag, interval):
             time.sleep(interval)
     except KeyboardInterrupt:
         click.echo("\nStopped by user.")
+
+
+@cli.command()
+@click.option("--tag", default=None, help="Filter by tag")
+def analyze(tag):
+    """Analyze collected metrics."""
+    analyze_logs(tag)
 
 if __name__ == "__main__":
     cli()
