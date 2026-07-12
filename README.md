@@ -11,7 +11,11 @@ Metrics are appended to `awo_log.jsonl` in the current working directory.
 ## Setup
 ```bash
 pip install -e .
-- Development 
+```
+
+For development (includes pytest):
+ 
+```bash
 pip install -e ".[dev]"
 python -m pytest -q
 ```
